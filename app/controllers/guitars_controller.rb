@@ -11,6 +11,14 @@ class GuitarsController < ApplicationController
     @guitar = Guitar.find(params[:id])
   end
 
+  # has nothing to do with the database
+  # gives an empty form with a submit button
+  # the submit button will then trigger the create action
+  def new
+    @guitar = Guitar.new
+  end
+
+  # when the form is submitted, Rails creates the new guitar in the database
   # POST /guitars
   def create
     guitar = Guitar.create(guitar_params)
